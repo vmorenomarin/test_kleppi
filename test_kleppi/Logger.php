@@ -7,6 +7,7 @@ class Logger {
     public function __construct(string $logFile) {
         $this->logFile = $logFile;
     }
+    
 
     private function log(string $level, string $message): void {
         $timestamp = date('Y-m-d H:i:s');
