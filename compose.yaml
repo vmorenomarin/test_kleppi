@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  # Servicio para tu aplicación PHP con Apache
+  web:
+    build: .
+    ports:
+      - "8080:80"
+    volumes:
+      - ./test_kleppi/:/var/www/html/
+    depends_on:
+      - db
+  
+  # Servicio para la base de datos PostgreSQL
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: mydatabase
+      POSTGRES_USER: vmoreno
+      POSTGRES_PASSWORD: test23
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
